@@ -75,9 +75,9 @@ Y se pide:
 
 Un ejemplo:
 
-Una parcela de 20 metros de ancho por 1 metro de largo que recibe 12 horas de sol por día, tiene una superficie de 20 metros cuadrados y la cantidad máxima de plantas que tolera es 4.
+Una parcela de 20 metros de ancho por 1 metro de largo que recibe 10 horas de sol por día, tiene una superficie de 20 metros cuadrados y la cantidad máxima de plantas que tolera es 4.
 
-Si a esa parcela le plantamos 4 plantas de soja de más de 1 metro (que toleran 9 horas de sol), no tendría complicaciones. Si intentaramos agregar una quinta planta, se superaría la cantidad máxima y nos arrojaría un error.
+Si a esa parcela le plantamos 4 plantas de soja de más de 1 metro (que toleran 12 horas de sol), no tendría complicaciones. Si intentaramos agregar una quinta planta, se superaría la cantidad máxima y nos arrojaría un error.
 
 
 ## 4. Parcelas ideales
