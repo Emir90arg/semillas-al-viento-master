@@ -1,0 +1,45 @@
+import plantas.*
+describe"Plantas"{
+	const menta1 = new Menta(anioObtencion=2010,altura=1)
+	const menta2 = new Menta(anioObtencion=2010,altura=0.3)
+	
+	const soja1 = new Soja(anioObtencion=2009,altura=0.6)
+	
+	const quinoa1 = new Quinoa(anioObtencion=2010,espacioQueOcupara=0.2)
+	const quinoa2 = new Quinoa(anioObtencion=2003,espacioQueOcupara=0.9)
+
+	test"plantas"{
+		assert.equals(7,menta1.horasDeSolQueTolera())
+		assert.equals(7,menta2.horasDeSolQueTolera())
+		
+		assert.equals(8,soja1.horasDeSolQueTolera())
+		
+		assert.equals(10,quinoa1.horasDeSolQueTolera())
+		assert.equals(7,quinoa2.horasDeSolQueTolera())
+		
+		assert.notThat(menta1.esFuerte())
+		assert.notThat(menta2.esFuerte())
+		
+		assert.notThat(soja1.esFuerte())
+		
+		assert.that(quinoa1.esFuerte())
+		assert.notThat(quinoa2.esFuerte())
+		
+		assert.that(menta1.daSemillas())
+		assert.notThat(menta2.daSemillas())
+		
+		assert.notThat(soja1.daSemillas())
+		
+		assert.that(quinoa1.daSemillas())
+		assert.that(quinoa1.daSemillas())
+		
+		assert.equals(3,menta1.espacioQueOcupa())
+		assert.equals(0.9,menta2.espacioQueOcupa())
+		
+		assert.equals(0.3,soja1.espacioQueOcupa())
+		
+		assert.equals(0.2,quinoa1.espacioQueOcupa())
+		assert.equals(0.9,quinoa2.espacioQueOcupa())
+	}
+	
+}
