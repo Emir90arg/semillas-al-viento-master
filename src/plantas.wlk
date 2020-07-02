@@ -1,3 +1,4 @@
+import parcelas.*
 class Planta{
 	var property anioObtencion = 0
 	var property altura = 0
@@ -11,6 +12,8 @@ class Planta{
 		return self.esFuerte()
 	}
 	method espacioQueOcupa()
+	
+	method esParcelaIdeal(parcela)
 }
 
 class Menta inherits Planta{
@@ -20,8 +23,10 @@ class Menta inherits Planta{
 	override method espacioQueOcupa(){
 		return altura * 3
 	}
+	override method esParcelaIdeal(parcela){
+		return parcela.superficie() > 6
+	}
 }
-
 class Soja inherits Planta{
 	override method horasDeSolQueTolera(){
 		if (altura < 0.5){
@@ -38,6 +43,9 @@ class Soja inherits Planta{
 	}	
 	override method espacioQueOcupa(){
 		return altura / 2
+	}
+	override method esParcelaIdeal(parcela){
+		return parcela.horasDeSolRecibidas() == self.horasDeSolQueTolera()
 	}
 }
 
@@ -56,13 +64,19 @@ class Quinoa inherits Planta{
 	override method daSemillas(){
 		return super() or anioObtencion < 2005
 	}
+	override method esParcelaIdeal(parcela){
+		return not parcela.tienePlantasAltas()
+	}
 }
-class SojaTransGenica inherits Planta{
+class SojaTransGenica inherits Soja{
 	override method daSemillas(){
 		return false
 	}
+	override method esParcelaIdeal(parcela){
+		return parcela.esMonocultivo() or parcela.cantidadDeTiposDePlantas() == 0
+	}
 }
-class HierbaBuena inherits Planta{
+class HierbaBuena inherits Menta{
 	override method espacioQueOcupa(){
 		return super()*2
 	}

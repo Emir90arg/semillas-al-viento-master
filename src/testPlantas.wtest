@@ -7,8 +7,12 @@ describe"Plantas"{
 	
 	const quinoa1 = new Quinoa(anioObtencion=2010,espacioQueOcupara=0.2)
 	const quinoa2 = new Quinoa(anioObtencion=2003,espacioQueOcupara=0.9)
+	
+	const sojaTrans1 = new SojaTransGenica(anioObtencion=2009,altura=0.6)
 
-	test"plantas"{
+	const hierbaBuena1 = new HierbaBuena(anioObtencion=2010,altura=0.5)
+
+	test"plantas primera parte"{
 		assert.equals(7,menta1.horasDeSolQueTolera())
 		assert.equals(7,menta2.horasDeSolQueTolera())
 		
@@ -40,6 +44,22 @@ describe"Plantas"{
 		
 		assert.equals(0.2,quinoa1.espacioQueOcupa())
 		assert.equals(0.9,quinoa2.espacioQueOcupa())
+	}
+	test"plantas agregadas"{
+		assert.equals(7,sojaTrans1.horasDeSolQueTolera())
+		assert.equals(7,hierbaBuena1.horasDeSolQueTolera())	
+		
+		assert.equals(10,sojaTrans1.horasDeSolQueTolera())
+		assert.equals(7,hierbaBuena1.horasDeSolQueTolera())	
+		
+		assert.notThat(sojaTrans1.esFuerte())
+		assert.notThat(hierbaBuena1.esFuerte())
+		
+		assert.that(sojaTrans1.daSemillas())
+		assert.notThat(hierbaBuena1.daSemillas())
+		
+		assert.equals(3,sojaTrans1.espacioQueOcupa())
+		assert.equals(0.9,hierbaBuena1.espacioQueOcupa())
 	}
 	
 }
