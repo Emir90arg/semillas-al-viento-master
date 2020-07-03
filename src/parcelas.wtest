@@ -3,4 +3,67 @@ import parcelas.*
 
 describe "test parcelas"{
 	
+	const menta1 = new Menta(anioObtencion=2010,altura=1)
+	
+	const soja1 = new Soja(anioObtencion=2009,altura=0.6)
+	
+	const quinoa1 = new Quinoa(anioObtencion=2010,espacioQueOcupara=0.2)
+	
+	const sojaTrans1 = new SojaTransGenica(anioObtencion=2009,altura=0.6)
+	
+	const hierbaBuena1 = new HierbaBuena(anioObtencion=2010,altura=0.5)
+	
+	const parcela1 = new ParcelaEcologica(ancho=20,largo=1,horasDeSolRecibidas=8)
+	const parcela2 = new ParcelaIndustrial(ancho=10,largo=1,horasDeSolRecibidas=10)
+	const parcela3 = new ParcelaIndustrial(ancho=20,largo=5,horasDeSolRecibidas=10)
+
+	
+	fixture{		
+		parcela2.plantarPlanta(soja1)
+		
+		parcela3.plantarPlanta(sojaTrans1)
+		
+	}
+	test"parcelas"{
+		assert.equals(20,parcela1.superficie())
+		assert.equals(4,parcela1.cantidadMaximaDePlantas())
+		assert.notThat(parcela1.tieneComplicaciones())
+	}
+	test "parcelas ideales"{
+		//ecologica
+		assert.that(menta1.esParcelaIdeal(parcela1))
+		assert.that(quinoa1.esParcelaIdeal(parcela1))
+		assert.that(soja1.esParcelaIdeal(parcela1))
+		assert.that(sojaTrans1.esParcelaIdeal(parcela1))
+		assert.that(hierbaBuena1.esParcelaIdeal(parcela1))
+		
+		//industrial
+		assert.that(menta1.esParcelaIdeal(parcela2))
+		assert.that(quinoa1.esParcelaIdeal(parcela2))
+		assert.notThat(soja1.esParcelaIdeal(parcela2))
+		assert.that(sojaTrans1.esParcelaIdeal(parcela2))
+		assert.that(hierbaBuena1.esParcelaIdeal(parcela2))
+			
+	}
+	test "se asocian bien"{
+		//ecologica
+		assert.that(parcela1.seAsocianBien(menta1))
+		assert.that(parcela1.seAsocianBien(soja1))
+		assert.that(parcela1.seAsocianBien(sojaTrans1))
+		assert.that(parcela1.seAsocianBien(quinoa1))
+		assert.that(parcela1.seAsocianBien(hierbaBuena1))
+		//industrial
+		assert.notThat(parcela2.seAsocianBien(menta1))
+		assert.notThat(parcela2.seAsocianBien(soja1))
+		assert.notThat(parcela2.seAsocianBien(sojaTrans1))
+		assert.that(parcela2.seAsocianBien(quinoa1))
+		assert.notThat(parcela2.seAsocianBien(hierbaBuena1))	
+	}
 }
+
+
+
+
+
+
+

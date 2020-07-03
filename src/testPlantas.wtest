@@ -46,20 +46,20 @@ describe"Plantas"{
 		assert.equals(0.9,quinoa2.espacioQueOcupa())
 	}
 	test"plantas agregadas"{
-		assert.equals(7,sojaTrans1.horasDeSolQueTolera())
+		assert.equals(8,sojaTrans1.horasDeSolQueTolera())
 		assert.equals(7,hierbaBuena1.horasDeSolQueTolera())	
 		
-		assert.equals(10,sojaTrans1.horasDeSolQueTolera())
+		assert.equals(8,sojaTrans1.horasDeSolQueTolera())
 		assert.equals(7,hierbaBuena1.horasDeSolQueTolera())	
 		
 		assert.notThat(sojaTrans1.esFuerte())
 		assert.notThat(hierbaBuena1.esFuerte())
 		
-		assert.that(sojaTrans1.daSemillas())
-		assert.notThat(hierbaBuena1.daSemillas())
+		assert.notThat(sojaTrans1.daSemillas())
+		assert.that(hierbaBuena1.daSemillas())
 		
-		assert.equals(3,sojaTrans1.espacioQueOcupa())
-		assert.equals(0.9,hierbaBuena1.espacioQueOcupa())
+		assert.equals(0.3,sojaTrans1.espacioQueOcupa())
+		assert.equals(3,hierbaBuena1.espacioQueOcupa())
 	}
 	
 }
